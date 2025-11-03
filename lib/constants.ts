@@ -1,8 +1,8 @@
 export const NAV_ITEMS :{ 
     href: string;
-    title: string;
+    label: string;
 }[] =[
-    {  href: "/" , title: "Dashboard" },
-    {  href: "/search" , title: "Search" },
-    {  href: "/watchlist" , title: "Watchlist" },
+    {  href: "/" , label: "Dashboard" },
+    {  href: "/search" , label: "Search" },
+    {  href: "/watchlist" , label: "Watchlist" },
 ]
