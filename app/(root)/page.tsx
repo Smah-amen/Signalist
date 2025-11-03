@@ -1,12 +1,11 @@
 import { Button } from "@/components/ui/button"
 
-const page = () => {
+const Home = () => {
   return (
-    <div className="flex justify-center items-center h-screen">
-      <Button> Click Me </Button>
-      
+    <div className="flex min-h-screen home-wrapper">
+home      
     </div>
   )
 }
 
-export default page
+export default Home
