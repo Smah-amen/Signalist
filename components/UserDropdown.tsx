@@ -24,10 +24,15 @@ const UserDropdown = () => {
 <DropdownMenu>
   <DropdownMenuTrigger  asChild>
     <Button variant="ghost" className="flex items-center gap-3 text-gray-400 hover:text-yellow-500">
-    <Avatar>
-        <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-        <AvatarFallback>CN</AvatarFallback>
+    <Avatar className="h-8 w-8">
+        {/* <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" /> */}
+        <AvatarFallback className="bg-yellow-500 text-yellow-900 text-sm font-bold">
+          {user?.name?.charAt(0).toUpperCase()}
+        </AvatarFallback>
       </Avatar>
+      <div className="hidden flex-col  md:flex items-start leading-none">
+        <span className="text-base font-medium leading-none">{user?.name}</span>
+      </div>
     </Button>
 
   </DropdownMenuTrigger>
