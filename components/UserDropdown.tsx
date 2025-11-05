@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -6,45 +6,72 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar"
-import { useRouter } from "next/navigation"
-import { Button } from "./ui/button"
+} from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useRouter } from "next/navigation";
+import { Button } from "./ui/button";
+import { LogOut } from "lucide-react";
+import NavItems from "./NavItems";
 const UserDropdown = () => {
-  const router = useRouter()
-  const handelSignOut = async() => {
-    router.push('/signin')
-  }
-  const user = { name: "sam" , email: "sam@gmail.com"}
+  const router = useRouter();
+  const handelSignOut = async () => {
+    router.push("/signin");
+  };
+  const user = { name: "samh amen", email: "samh@gmail.com" };
   return (
-<DropdownMenu>
-  <DropdownMenuTrigger  asChild>
-    <Button variant="ghost" className="flex items-center gap-3 text-gray-400 hover:text-yellow-500">
-    <Avatar className="h-8 w-8">
-        {/* <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" /> */}
-        <AvatarFallback className="bg-yellow-500 text-yellow-900 text-sm font-bold">
-          {user?.name?.charAt(0).toUpperCase()}
-        </AvatarFallback>
-      </Avatar>
-      <div className="hidden flex-col  md:flex items-start leading-none">
-        <span className="text-base font-medium leading-none">{user?.name}</span>
-      </div>
-    </Button>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button
+          variant="ghost"
+          className="flex items-center gap-3 text-gray-400 hover:text-yellow-500"
+        >
+          <Avatar className="h-8 w-8">
+            {/* <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" /> */}
+            <AvatarFallback className="bg-yellow-500 text-yellow-900 text-sm font-bold">
+              {user?.name?.charAt(0).toUpperCase()}
+            </AvatarFallback>
+          </Avatar>
+          <div className="hidden flex-col  md:flex items-start leading-none">
+            <span className="text-base font-medium leading-none">
+              {user?.name}
+            </span>
+          </div>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="text-gray-400">
+        <DropdownMenuLabel>
+          <div className="flex relative items-center gap-3 py-2">
+            <Avatar className="h-10 w-10">
+              {/* <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" /> */}
+              <AvatarFallback className="bg-yellow-500 text-yellow-900 text-sm font-bold">
+                {user?.name?.charAt(0).toUpperCase()}
+              </AvatarFallback>
+            </Avatar>
+            <div className="flex flex-col  ">
+              <span className="text-base font-medium ">
+                {user?.name}
+              </span>
+              <span className="text-sm   text-gray-500">
+                {user?.email}
+              </span>
+            </div>
+          </div>
+        </DropdownMenuLabel>
+        <DropdownMenuSeparator className="bg-gray-600" />
+        <DropdownMenuItem
+          onClick={handelSignOut}
+          className=" text-gray-100 font-medium focus:bg-transparent focus:text-yellow-500 transition-colors cursor-pointer"
+        >
+          <LogOut className="mr-2 hidden h-4 w-4 sm:block text-gray-400" />
+          logout
+        </DropdownMenuItem>
+        <DropdownMenuSeparator className="hidden sm:block bg-gray-600" />
+        <nav className="sm:hidden">
+          <NavItems/>
+        </nav>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
 
-  </DropdownMenuTrigger>
-  <DropdownMenuContent>
-    <DropdownMenuLabel>My Account</DropdownMenuLabel>
-    <DropdownMenuSeparator />
-    <DropdownMenuItem>Profile</DropdownMenuItem>
-    <DropdownMenuItem>Billing</DropdownMenuItem>
-    <DropdownMenuItem>Team</DropdownMenuItem>
-    <DropdownMenuItem>Subscription</DropdownMenuItem>
-  </DropdownMenuContent>
-</DropdownMenu>  )
-}
-
-export default UserDropdown
+export default UserDropdown;
