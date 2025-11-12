@@ -8,7 +8,7 @@ const Header = () => {
     <header className="sticky top-0 header">
         <div className="container header-wrapper">
             <Link  href="/" >
-            <Image alt="logo" src="/public/assets/icons/logo.svg" width={140} height={32} className="h-8 w-auto cursor-pointer" />
+            <Image alt="logo" src="/assets/icons/logo.svg" width={140} height={32} className="h-8 w-auto cursor-pointer" />
             </Link>
             <nav className="hidden sm:block">
                 <NavItems/>
