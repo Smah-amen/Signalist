@@ -64,7 +64,7 @@ const CountrySelectPopover = ({
           {value ? (
             <span className="flex items-center gap-2">
               <span>{getFlagEmoji(value)}</span>
-              <span>{countries.find((c:any) => c.value === value)?.label}</span>
+              <span>{countries.find((c) => c.value === value)?.label}</span>
             </span>
           ) : (
             "Select your country..."
@@ -86,7 +86,7 @@ const CountrySelectPopover = ({
           </CommandEmpty>
           <CommandList className="max-h-60 bg-gray-800 scrollbar-hide-default">
             <CommandGroup className="bg-gray-800">
-              {countries.map((country:any) => (
+              {countries.map((country) => (
                 <CommandItem
                   key={country.value}
                   value={`${country.label} ${country.value}`}

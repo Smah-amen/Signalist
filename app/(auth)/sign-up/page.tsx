@@ -1,5 +1,6 @@
 "use client";
 import { CountrySelect } from "@/components/forms/CountrySelect";
+import FooterLink from "@/components/forms/FooterLink";
 import InputFaild from "@/components/forms/InputFaild";
 import SelactFaild from "@/components/forms/SelactFaild";
 import { Button } from "@/components/ui/button";
@@ -139,6 +140,13 @@ const SignUp = () => {
         >
           {isSubmitting ? "creating account" : "start your journey"}
         </Button>
+      <FooterLink 
+        text="Already have an account?"
+        linkText="Sign In"
+        href="/sign-in"
+      
+      />
+
       </form>
     </>
   );
