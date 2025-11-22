@@ -1,6 +1,8 @@
 "use client";
 import InputFaild from "@/components/forms/InputFaild";
+import SelactFaild from "@/components/forms/SelactFaild";
 import { Button } from "@/components/ui/button";
+import { INVESTMENT_GOALS } from "@/lib/constants";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 interface SignInFormData {
@@ -88,6 +90,18 @@ const SignUp = () => {
               message: "Password must be at least 8 characters",
             },
           }}
+        />
+
+        <SelactFaild
+          name="investmentGoals"
+          label="Investment Goals"
+          placeholder="Select your investment goals"
+          control={control}
+          error={errors.investmentGoals}
+          options={INVESTMENT_GOALS}
+          required 
+        
+    
         />
         <Button
           type="submit"
