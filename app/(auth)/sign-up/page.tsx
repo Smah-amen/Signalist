@@ -1,8 +1,13 @@
 "use client";
+import { CountrySelect } from "@/components/forms/CountrySelect";
 import InputFaild from "@/components/forms/InputFaild";
 import SelactFaild from "@/components/forms/SelactFaild";
 import { Button } from "@/components/ui/button";
-import { INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS } from "@/lib/constants";
+import {
+  INVESTMENT_GOALS,
+  PREFERRED_INDUSTRIES,
+  RISK_TOLERANCE_OPTIONS,
+} from "@/lib/constants";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 interface SignInFormData {
@@ -91,7 +96,13 @@ const SignUp = () => {
             },
           }}
         />
-
+        <CountrySelect
+          name="country"
+          label="Country"
+          control={control}
+          error={errors.country}
+          required
+        />
         <SelactFaild
           name="investmentGoals"
           label="Investment Goals"
@@ -99,32 +110,26 @@ const SignUp = () => {
           control={control}
           error={errors.investmentGoals}
           options={INVESTMENT_GOALS}
-          required 
-        
-    
+          required
         />
-              <SelactFaild
+        <SelactFaild
           name="riskTolerance"
           label="Risk Tolerance"
           placeholder="Select your risk level"
           control={control}
           error={errors.riskTolerance}
           options={RISK_TOLERANCE_OPTIONS}
-          required 
-        
-    
+          required
         />
 
-                <SelactFaild
+        <SelactFaild
           name="preferredIndustry"
           label="Preferred Industry"
           placeholder="Select your preferred industry"
           control={control}
           error={errors.preferredIndustry}
           options={PREFERRED_INDUSTRIES}
-          required 
-        
-    
+          required
         />
 
         <Button
