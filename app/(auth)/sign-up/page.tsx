@@ -2,7 +2,7 @@
 import InputFaild from "@/components/forms/InputFaild";
 import SelactFaild from "@/components/forms/SelactFaild";
 import { Button } from "@/components/ui/button";
-import { INVESTMENT_GOALS } from "@/lib/constants";
+import { INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS } from "@/lib/constants";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 interface SignInFormData {
@@ -103,6 +103,30 @@ const SignUp = () => {
         
     
         />
+              <SelactFaild
+          name="riskTolerance"
+          label="Risk Tolerance"
+          placeholder="Select your risk level"
+          control={control}
+          error={errors.riskTolerance}
+          options={RISK_TOLERANCE_OPTIONS}
+          required 
+        
+    
+        />
+
+                <SelactFaild
+          name="preferredIndustry"
+          label="Preferred Industry"
+          placeholder="Select your preferred industry"
+          control={control}
+          error={errors.preferredIndustry}
+          options={PREFERRED_INDUSTRIES}
+          required 
+        
+    
+        />
+
         <Button
           type="submit"
           disabled={isSubmitting}

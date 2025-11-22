@@ -34,14 +34,21 @@ const SelactFaild = ({
         }}
         render={({ field }) => (
           <Select onValueChange={field.onChange} value={field.value}>
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Theme" />
+            <SelectTrigger className="select-trigger" >
+              <SelectValue placeholder={placeholder} />
             </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="light">Light</SelectItem>
-              <SelectItem value="dark">Dark</SelectItem>
-              <SelectItem value="system">System</SelectItem>
+            <SelectContent className="bg-gray-800 border-gray-600 text-white">
+              {options.map((option)=>(
+                <SelectItem
+                  key={option.value}
+                  value={option.value}
+                    className="focus:bg-gray-700 focus:text-white"
+                >
+                    {option.label}
+                </SelectItem>
+              ))}
             </SelectContent>
+            {error && <p className="text-sm text-red-600 mt-1">{error.message}</p>}
           </Select>
         )}
       />
